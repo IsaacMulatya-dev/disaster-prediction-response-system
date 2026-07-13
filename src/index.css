@@ -1,0 +1,476 @@
+/* Tailwind base/components/utilities must be present so @layer rules work */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light mode - Grey background with modern blended colors */
+    --background: 0 0% 92%; /* light grey */
+    --foreground: 222 20% 12%;
+
+    --card: 220 20% 98%;
+    --card-foreground: 222 20% 12%;
+
+    --popover: 220 20% 99%;
+    --popover-foreground: 222 20% 12%;
+
+    --primary: 222 89% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 22% 96%;
+    --secondary-foreground: 222 20% 20%;
+
+    --muted: 220 16% 96%;
+    --muted-foreground: 222 10% 40%;
+
+    --accent: 250 100% 97%;
+    --accent-foreground: 255 30% 25%;
+
+    --destructive: 0 84% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 222 89% 56%;
+
+    /* Emergency system colors */
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 15%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 98%;
+
+    /* Status colors for disasters */
+    --flood: 210 100% 50%;
+    --wildfire: 16 100% 50%;
+    --earthquake: 30 100% 50%;
+    --hurricane: 260 100% 50%;
+    --volcanic: 0 84% 60%;
+
+    /* Gradients with modern blended colors */
+    --gradient-danger: linear-gradient(135deg, hsl(var(--danger)), hsl(0 84% 40%));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(38 92% 40%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(222 89% 50%));
+    --gradient-background: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 14% 98%), hsl(250 100% 97%));
+    
+    /* Modern blended color texture for light mode */
+    --texture: radial-gradient(1000px 400px at 20% -10%, hsl(220 89% 96% / 0.6), transparent 60%),
+               radial-gradient(800px 300px at 80% 10%, hsl(250 100% 97% / 0.7), transparent 50%),
+               radial-gradient(600px 200px at 50% 50%, hsl(210 100% 97% / 0.5), transparent 40%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-danger: 0 0 20px hsl(var(--danger) / 0.3);
+    --shadow-warning: 0 0 20px hsl(var(--warning) / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Dark blue theme matching the image */
+    --background: 220 25% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 25% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 25% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 0 0% 85%;
+
+    --accent: 220 22% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 100% 50%;
+
+    /* Emergency system colors - same for both themes */
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 15%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 98%;
+
+    /* Status colors for disasters - same for both themes */
+    --flood: 210 100% 50%;
+    --wildfire: 16 100% 50%;
+    --earthquake: 30 100% 50%;
+    --hurricane: 260 100% 50%;
+    --volcanic: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-danger: linear-gradient(135deg, hsl(var(--danger)), hsl(0 84% 40%));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(38 92% 40%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(210 100% 40%));
+    --gradient-background: linear-gradient(180deg, hsl(220 25% 12%), hsl(220 20% 10%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-danger: 0 0 20px hsl(var(--danger) / 0.3);
+    --shadow-warning: 0 0 20px hsl(var(--warning) / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 25% 14%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer components {
+  /* Section surfaces (apply to wrappers as needed) */
+  .surface {
+    background-color: hsla(var(--secondary), 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .surface-alt {
+    background-color: hsl(var(--accent));
+    backdrop-filter: blur(4px);
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .surface-strong {
+    background: linear-gradient(180deg, hsl(var(--accent) / 0.7), hsl(var(--secondary)));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+}
+
+@layer base {
+  /* Global universal borders removed: applying borders to every element (*)
+     caused boxes to appear around plain text and inline elements. That
+     created the visual 'text boxes' and made the cursor appear to point
+     at every piece of text. Borders should be applied only to components
+     that need them (cards, surfaces, form controls, badges, etc.). */
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .dark body {
+    background-image: var(--gradient-background);
+  }
+
+  /* Typography improvements for better readability */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* font-semibold */
+    letter-spacing: -0.015em; /* tracking-tight */
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-4xl;
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* text-2xl */
+    line-height: 2rem;
+    /* Responsive font size for large screens */
+    @media (min-width: 1024px) {
+      font-size: 1.875rem; /* text-3xl */
+      line-height: 2.25rem;
+    }
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+  h3 {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h4 {
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75rem;
+  }
+  @media (min-width: 1024px) {
+    h4 {
+      font-size: 1.25rem; /* text-xl */
+      line-height: 1.75rem;
+    }
+  }
+
+  /* Better text contrast and readability */
+  .text-muted-foreground {
+    color: hsl(var(--foreground) / 0.7);
+  }
+
+  .text-muted {
+    color: hsl(var(--foreground) / 0.6);
+  }
+
+  /* Light mode text colors */
+  .text-muted-foreground {
+    color: #475569;
+  }
+  
+  .text-muted {
+    color: #64748b;
+  }
+
+  /* Dark mode text colors */
+  .dark .text-muted-foreground {
+    color: #d1d5db;
+  }
+  
+  .dark .text-muted {
+    color: #94a3b8;
+  }
+
+  /* Card text improvements */
+  .card {
+    color: hsl(var(--foreground));
+  }
+
+  /* Button text improvements */
+  .btn-text {
+    font-weight: 500;
+  }
+
+  /* Form text improvements */
+  input, textarea, select {
+    color: hsl(var(--foreground));
+    &::placeholder {
+      color: hsl(var(--muted-foreground));
+    }
+  }
+
+  /* Status badge text improvements */
+  .badge {
+    font-weight: 500;
+    font-size: 0.875rem; /* text-sm */
+  }
+
+  /* Sidebar text improvements */
+  .sidebar-text {
+    color: hsl(var(--foreground) / 0.9);
+  }
+
+  /* Dashboard metric text improvements */
+  .metric-value {
+        font-weight: 700;
+        font-size: 1.5rem; /* text-2xl */
+        line-height: 2rem;
+    }
+    @media (min-width: 1024px) {
+      .metric-value {
+        font-size: 1.875rem; /* text-3xl */
+        line-height: 2.25rem;
+      }
+  }
+
+  .metric-label {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500;    /* font-medium */
+    color: hsl(var(--foreground) / 0.7); /* text-muted-foreground */
+  }
+}
+
+@layer utilities {
+  /* Light mode only: make any element using the `text-primary` utility appear as bold black text.
+     Uses :root:not(.dark) so it only applies when the `.dark` class is NOT present on the root element. */
+  :root:not(.dark) .text-primary {
+    /* Use the foreground variable (black in light mode) and force weight to bold to override utility styles */
+    color: hsl(var(--foreground)) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Ensure SVG icons and nested elements inherit the updated color (many icons rely on currentColor) */
+  :root:not(.dark) .text-primary svg,
+  :root:not(.dark) .text-primary * {
+    color: inherit !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  /* Light mode only: force h1, h2, h3 headers to bold black text, removing gradient blue */
+  :root:not(.dark) h1,
+  :root:not(.dark) h2,
+  :root:not(.dark) h3 {
+    color: hsl(var(--foreground)) !important;
+    font-weight: 700 !important;
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+  }
+
+  /* Light mode only: force body background to solid grey, removing gradients and textures */
+  :root:not(.dark) body {
+    background-color: hsl(var(--background)) !important;
+    background-image: none !important;
+  }
+
+  :root:not(.dark) .header-nav-bg {
+    background-color: #001f3f !important; /* navy blue */
+  }
+
+  :root:not(.dark) .header-nav-bg,
+  :root:not(.dark) .header-nav-bg *,
+  :root:not(.dark) .header-nav-text,
+  :root:not(.dark) .header-nav-text * {
+    color: #fff !important;
+  }
+
+  :root:not(.dark) .header-nav-bg .text-muted-foreground {
+    color: #fff !important;
+  }
+
+  :root:not(.dark) .footer-nav-bg {
+    background-color: #001f3f !important; /* navy blue */
+  }
+
+  :root:not(.dark) .footer-nav-bg,
+  :root:not(.dark) .footer-nav-bg * {
+    color: #fff !important;
+  }
+
+  :root:not(.dark) .avatar-fallback-blue {
+    background-color: #001f3f !important;
+    color: #fff !important;
+  }
+  :root:not(.dark) .member-badge-blue {
+    background-color: #001f3f !important;
+    color: #fff !important;
+    border: none !important;
+  }
+
+  .dark .avatar-fallback-blue {
+    background-color: #001f3f !important;
+    color: #fff !important;
+  }
+  .dark .member-badge-blue {
+    background-color: #001f3f !important;
+    color: #fff !important;
+    border: none !important;
+  }
+
+  :root:not(.dark) .bg-muted,
+  :root:not(.dark) .bg-muted\/50 {
+    background-color: #001f3f !important;
+    color: #fff !important;
+  }
+  .dark .bg-muted,
+  .dark .bg-muted\/50 {
+    background-color: #001f3f !important;
+    color: #fff !important;
+  }
+
+  :root:not(.dark) .bg-muted .text-muted-foreground,
+  :root:not(.dark) .bg-muted\/50 .text-muted-foreground {
+    color: #fff !important;
+  }
+  .dark .bg-muted .text-muted-foreground,
+  .dark .bg-muted\/50 .text-muted-foreground {
+    color: #fff !important;
+  }
+
+  .auth-bg {
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80'); /* Nairobi cityscape */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .auth-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+  .auth-bg > * {
+    position: relative;
+    z-index: 1;
+  }
+  /* Hide blinking text caret (cursor) inside inputs/textareas/contenteditable areas.
+     Useful for presentations/screenshots where the blinking caret is distracting.
+     If you want to allow typing/caret again, remove this rule. */
+  input, textarea, [contenteditable] {
+    caret-color: transparent !important;
+  }
+
+  /* Force default (arrow) cursor for all non-editable elements to avoid
+     I-beam/text-cursor appearing when clicking around the UI. Keep pointer
+     cursor for links and buttons so interactive affordances remain. */
+  html, body, *:not(input):not(textarea):not(select):not([contenteditable]) {
+    cursor: default !important;
+    /* Prevent text selection and the insertion caret on non-editable UI elements.
+       This stops the I-beam / text cursor from appearing when clicking labels,
+       paragraphs, and other plain text used in the interface. */
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+
+  a, button {
+    cursor: pointer !important;
+  }
+}

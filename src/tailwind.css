@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This file intentionally contains only Tailwind's directive entry points.
+   Keeping Tailwind directives in a small, dedicated file avoids @layer ordering
+   issues when large design-system CSS (with @layer) exists in other files.
+*/

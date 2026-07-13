@@ -1,0 +1,5 @@
+email_text,cleaned,prediction,label
+"Hello, your account was compromised. Click here to reset.",hello account compromised click reset,1,Phishing
+Reminder: Meeting today at 2 PM.,reminder meeting today pm,0,Legitimate
+Your Netflix account is suspended. Update your info.,netflix account suspended update info,1,Phishing
+Lunch at noon. See you there!,lunch noon see,0,Legitimate
