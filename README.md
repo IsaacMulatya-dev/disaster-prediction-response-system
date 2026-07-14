@@ -12,7 +12,7 @@ This system uses AI to predict and respond to natural disasters in real time. Bu
 
 ## Setup Instructions
 ```bash
-git clone https://github.com/IsaacMulatya-dev/ai-guardian-alert.git
+git clone https://github.com/IsaacMulatya-dev/disaster-prediction-response-system.git
 cd "AI-POWERED DISASTER PREDICTION AND RESPONSE SYSTEM"
 npm install
 npm run dev

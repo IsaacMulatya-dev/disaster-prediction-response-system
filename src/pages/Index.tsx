@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardHeader } from "@/components/DashboardHeader";
-import EmergencyResponseDashboard from "@/components/EmergencyResponseDashboard";
-import EnvironmentalMonitoringAndRisk from "@/components/EnvironmentalMonitoringAndRisk";
+import { EmergencyResponseDashboard } from "@/components/EmergencyResponseDashboard";
+import {} from "@/components/EnvironmentalMonitoringAndRisk";
 import { useRealtimeDataSimulation } from "@/hooks/useRealtimeDataSimulation";
 import { useAuth } from "@/hooks/useAuth";
 import Footer from "@/components/Footer";
