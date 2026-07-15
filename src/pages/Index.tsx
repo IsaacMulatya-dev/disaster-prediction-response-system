@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { EmergencyResponseDashboard } from "@/components/EmergencyResponseDashboard";
-import {} from "@/components/EnvironmentalMonitoringAndRisk";
+import { WeatherMap } from "../components/WeatherMap";
 import { useRealtimeDataSimulation } from "@/hooks/useRealtimeDataSimulation";
 import { useAuth } from "@/hooks/useAuth";
 import Footer from "@/components/Footer";
@@ -61,7 +61,7 @@ const Index = () => {
       
       <main className="space-y-8">
         <EmergencyResponseDashboard />
-        <EnvironmentalMonitoringAndRisk />
+        <WeatherMap />
       </main>
       <Footer />
     </div>
